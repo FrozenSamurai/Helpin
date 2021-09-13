@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "69104613383",
+    "project_id": "helpin-5e109",
+    "storage_bucket": "helpin-5e109.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:69104613383:android:3932d63ad49bd51f8352a2",
+        "android_client_info": {
+          "package_name": "com.example.helpin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "69104613383-49ap3otqtcivhh3dccbr622cja53vr4b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCit9iV27yQYeP6PtWDDq49BvgVnYD8RaI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "69104613383-49ap3otqtcivhh3dccbr622cja53vr4b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

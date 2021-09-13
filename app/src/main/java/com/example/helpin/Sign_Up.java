@@ -1,5 +1,6 @@
 package com.example.helpin;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,8 +10,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import org.w3c.dom.Text;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class Sign_Up extends AppCompatActivity implements View.OnClickListener {
     // All buttons, editText declared below
@@ -18,20 +23,23 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener {
     private EditText email, password;
     private String email_get, password_get;
     private TextView forget_password;
+    FirebaseAuth fAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign__up);
 
-        signup_done = (Button) findViewById(R.id.signup_done);
+        signup_done = (Button) findViewById(R.id.register_data);
         signup_done.setOnClickListener(this);
 
-        email = (EditText) findViewById(R.id.email_editText);
-        password = (EditText) findViewById(R.id.password_editText);
+        email = (EditText) findViewById(R.id.email_reg);
+        password = (EditText) findViewById(R.id.password_reg);
 
         forget_password = (TextView) findViewById(R.id.forget_password);
         forget_password.setOnClickListener(this);
+
+        fAuth = FirebaseAuth.getInstance();
 
 
     }
@@ -39,7 +47,7 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.signup_done:
+            case R.id.register_data:
                 userSignUp();
                 break;
             case R.id.forget_password:
@@ -74,5 +82,21 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener {
             password.requestFocus();
             return;
         }
+
+        fAuth.signInWithEmailAndPassword(email_get,password_get).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    Toast.makeText(Sign_Up.this, " Logged in Successfully", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getApplicationContext(),Dashboard.class));
+                }
+                else {
+                    Toast.makeText(Sign_Up.this, "You are not REGISTERED!, Please do register in our APP first ", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
     }
+
+
 }
