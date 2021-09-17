@@ -50,15 +50,15 @@ FirebaseAuth auth;
             return;
         }
         auth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                                     @Override
-                                                                     public void onComplete(@NonNull  Task<Void> task) {
-                                                                         if(task.isSuccessful()){
-                                                                             Toast.makeText(forget_password.this, "Check your email to reset your password!", Toast.LENGTH_SHORT).show();
-                                                                         } else {
-                                                                             Toast.makeText(forget_password.this, "Try again! Something went wrong ", Toast.LENGTH_SHORT).show();
-                                                                         }
-                                                                     }
-                                                                 }
+            @Override
+            public void onComplete(@NonNull  Task<Void> task) {
+                if(task.isSuccessful()){
+                    Toast.makeText(forget_password.this, "Check your email to reset your password!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(forget_password.this, "Try again! Something went wrong ", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
         );
 
     }

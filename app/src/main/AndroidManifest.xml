@@ -13,6 +13,7 @@
         android:theme="@style/Theme.Helpin">
         <activity android:name=".Registeration"></activity>
         <activity android:name=".Dashboard" />
+        <activity android:name=".forget_password" />
         <activity android:name=".Sign_Up" />
         <activity android:name=".MainActivity" />
         <activity android:name=".Splash_Screen">
