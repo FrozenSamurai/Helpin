@@ -50,7 +50,7 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign__up);
 
-        requestGoogle();
+//        requestGoogle();
         signup_done = (Button) findViewById(R.id.register_data);
         signup_done.setOnClickListener(this);
 
@@ -60,8 +60,8 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener {
         forget_password = (TextView) findViewById(R.id.forget_password);
         forget_password.setOnClickListener(this);
 
-        googleIcon = (ImageView)findViewById(R.id.google);
-        googleIcon.setOnClickListener(this);
+//        googleIcon = (ImageView)findViewById(R.id.google);
+//        googleIcon.setOnClickListener(this);
         mAuth=FirebaseAuth.getInstance();
         fAuth = FirebaseAuth.getInstance();
 
@@ -77,44 +77,40 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener {
             case R.id.forget_password:
                 startActivity(new Intent(Sign_Up.this,forget_password.class));
                 break;
-            case R.id.google:
-                googleSign();
-                break;
+//            case R.id.google:
+//                googleSign();
+//                break;
 
         }
     }
 
-    private void googleSign() {
-
-        resultLauncher.launch(new Intent(mGoogleSignInClient.getSignInIntent()));
-    }
-
-//    private void signIn() {
-//        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-//        startActivityForResult(signInIntent, RC_SIGN_IN);
+//    private void googleSign() {
 //
+//        resultLauncher.launch(new Intent(mGoogleSignInClient.getSignInIntent()));
 //    }
 
-    ActivityResultLauncher<Intent> resultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
-        @Override
-        public void onActivityResult(ActivityResult result) {
-            if(result.getResultCode() == Activity.RESULT_OK){
-                Intent intent = result.getData();
 
-                Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(intent);
-                try {
-                    // Google Sign In was successful, authenticate with Firebase
-                    GoogleSignInAccount account = task.getResult(ApiException.class);
 
-                    firebaseAuthWithGoogle(account.getIdToken());
-                } catch (ApiException e) {
-                    // Google Sign In failed, update UI appropriately
-
-                }
-            }
-
-        }
-    });
+//    ActivityResultLauncher<Intent> resultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+//        @Override
+//        public void onActivityResult(ActivityResult result) {
+//            if(result.getResultCode() == Activity.RESULT_OK){
+//                Intent intent = result.getData();
+//
+//                Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(intent);
+//                try {
+//                    // Google Sign In was successful, authenticate with Firebase
+//                    GoogleSignInAccount account = task.getResult(ApiException.class);
+//
+//                    firebaseAuthWithGoogle(account.getIdToken());
+//                } catch (ApiException e) {
+//                    // Google Sign In failed, update UI appropriately
+//
+//                }
+//            }
+//
+//        }
+//    });
 
 
 
@@ -134,36 +130,36 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener {
 //        }
 //    }
 
-    private void firebaseAuthWithGoogle(String idToken) {
-        AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
-        mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
+//    private void firebaseAuthWithGoogle(String idToken) {
+//        AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
+//        mAuth.signInWithCredential(credential)
+//                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<AuthResult> task) {
+//                        if (task.isSuccessful()) {
+//                            // Sign in success, update UI with the signed-in user's information
+//
+//                            FirebaseUser user = mAuth.getCurrentUser();
+//                            startActivity(new Intent(Sign_Up.this,Dashboard.class));
+//
+//                        } else {
+//                            // If sign in fails, display a message to the user.
+//                            Toast.makeText(Sign_Up.this, "Something went wrong!!", Toast.LENGTH_SHORT).show();
+//
+//                        }
+//                    }
+//                });
+//    }
 
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            startActivity(new Intent(Sign_Up.this,Dashboard.class));
-
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Toast.makeText(Sign_Up.this, "Something went wrong!!", Toast.LENGTH_SHORT).show();
-
-                        }
-                    }
-                });
-    }
-
-    private void requestGoogle() {
-        // Configure Google Sign In
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build();
-
-        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-    }
+//    private void requestGoogle() {
+//        // Configure Google Sign In
+//        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+//                .requestIdToken(getString(R.string.default_web_client_id))
+//                .requestEmail()
+//                .build();
+//
+//        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+//    }
 
     private void userSignUp() {
 

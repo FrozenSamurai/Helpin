@@ -42,7 +42,7 @@
         app:srcCompat="@drawable/helpinlogo" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/googleIconButton"
         android:layout_width="81dp"
         android:layout_height="75dp"
         android:background="@drawable/googleicon"
