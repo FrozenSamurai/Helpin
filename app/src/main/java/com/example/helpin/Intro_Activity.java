@@ -70,9 +70,9 @@ public class Intro_Activity extends AppCompatActivity {
         //YoYo.with(Techniques.FadeInUp).duration(10000).repeat(10).playOn(intro_title);
         final List<ScreenItem> mList = new ArrayList<>();
         boolean fresh_items = mList.add(new ScreenItem("INSPIRE", "Instead of worrying about what you cannot control, shift your energy to what you can create.", R.drawable.helpinob));
-        mList.add(new ScreenItem("AWARE", "Awarness without action is worthless", R.drawable.pic2));
-        mList.add(new ScreenItem("EDUCATE", "An investment in knowledge paysthe best interest", R.drawable.pic3));
-        mList.add(new ScreenItem("EMPLOY", "Employ your time in improving yourself by other men's writings, so that you shall gain easily what others have labored hard for.", R.drawable.pic4));
+        mList.add(new ScreenItem("AWARE", "Awarness without action is worthless", R.drawable.stepsslide));
+        mList.add(new ScreenItem("EDUCATE", "An investment in knowledge paysthe best interest", R.drawable.lastslide));
+        mList.add(new ScreenItem("EMPLOY", "Employ your time in improving yourself by other men's writings, so that you shall gain easily what others have labored hard for.", R.drawable.secondlast));
 
 
         // setup viewpager

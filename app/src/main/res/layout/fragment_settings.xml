@@ -3,12 +3,52 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Settings Fragment"
-        android:textColor="@color/white"
-        android:textSize="30sp" />
+    <ImageButton
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginLeft="25dp"
+        android:src="@drawable/howtouse">
+
+    </ImageButton>
+
+    <ImageButton
+        android:id="@+id/disp_setting"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="25dp"
+        android:src="@drawable/display">
+
+    </ImageButton>
+
+    <ImageButton
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="255dp"
+        android:layout_marginLeft="25dp"
+        android:src="@drawable/privacy">
+
+    </ImageButton>
+
+    <ImageButton
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="360dp"
+        android:layout_marginLeft="25dp"
+        android:src="@drawable/help">
+
+    </ImageButton>
+
+    <ImageButton
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="465dp"
+        android:layout_marginLeft="25dp"
+        android:src="@drawable/aboutus">
+
+    </ImageButton>
+
+
 
 </RelativeLayout>

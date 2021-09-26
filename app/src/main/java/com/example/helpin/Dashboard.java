@@ -88,14 +88,17 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
             case R.id.nav_history:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new History_Fragment()).commit();
+                getSupportActionBar().setTitle("Helpin'- History");
                 break;
             case R.id.nav_settings:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new Settings_Fragment()).commit();
+                getSupportActionBar().setTitle("Helpin'- Settings");
                 break;
             case R.id.nav_home:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new Home_Fragment()).commit();
+                getSupportActionBar().setTitle("Helpin'- Dashboard");
                 break;
         }
         drawer.closeDrawer(GravityCompat.START);
