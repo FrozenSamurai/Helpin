@@ -31,6 +31,32 @@
 
         </FrameLayout>
 
+
+        <EditText
+            android:id="@+id/text_to_speech"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="-550dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="100dp"
+            android:background="@color/white"
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            android:lines="5"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/speak_for_text"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="-50dp"
+            android:text="Speak" />
+
 <!--        <EditText-->
 <!--            android:id="@+id/text_to_speech"-->
 <!--            android:layout_width="match_parent"-->
@@ -46,6 +72,7 @@
 <!--            android:inputType="textMultiLine"-->
 <!--            android:lines="5"-->
 <!--            android:textColor="@color/black" />-->
+
 
 <!--        <Button-->
 <!--            android:id="@+id/speak_for_text"-->
