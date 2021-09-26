@@ -21,7 +21,5 @@
         <item name="windowNoTitle">true</item>
         <item name="android:statusBarColor" tools:targetApi="lollipop">@android:color/transparent</item>
     </style>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-    </style>
-
 </resources>
+
