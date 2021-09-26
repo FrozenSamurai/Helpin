@@ -11,15 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Helpin">
-        <activity android:name=".AboutUs"></activity>
-        <activity android:name=".Help" />
-        <activity android:name=".Privacy" />
-        <activity android:name=".Display"
-            android:parentActivityName=".Dashboard"
-
-            />
-        <activity android:name=".HowToUse" />
-        <activity android:name=".Registeration" />
+        <activity android:name=".Registeration"></activity>
         <activity android:name=".Dashboard" />
         <activity android:name=".forget_password" />
         <activity android:name=".Sign_Up" />
