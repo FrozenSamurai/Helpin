@@ -11,7 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Helpin">
-        <activity android:name=".Registeration"></activity>
+        <activity
+            android:name=".Test"
+            android:exported="true" />
+        <activity android:name=".Registeration" />
         <activity android:name=".Dashboard" />
         <activity android:name=".forget_password" />
         <activity android:name=".Sign_Up" />
