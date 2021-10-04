@@ -3,6 +3,8 @@
     package="com.example.helpin">
 
     <permission android:name="android.permission.INTERNET" />
+<!--    <permission android:name="android.permission.RE"-->
+<!--    <permission android:name="android.permission.RECORD_AUDIO" />-->
 
     <application
         android:allowBackup="true"
