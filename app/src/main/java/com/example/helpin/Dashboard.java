@@ -16,6 +16,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -80,10 +82,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_logout:
-                FirebaseAuth.getInstance().signOut();//logout
-                startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                Toast.makeText(this, "Logout Successful ", Toast.LENGTH_SHORT).show();
-                finish();
+                signOut();
                 break;
             case R.id.nav_history:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
@@ -103,6 +102,20 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void signOut(){
+        MainActivity.mGoogleSignInClient.signOut()
+                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+//                        FirebaseAuth.getInstance().signOut();//logout
+                        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                        Toast.makeText(Dashboard.this, "Logout Successful ", Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
+                });
+
     }
 }
 

@@ -9,7 +9,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -29,12 +31,13 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-private Button sign_in, sign_up,googleIcon;
+    private Button sign_in, sign_up, googleIcon;
     private static final String TAG = "s";
-    private final static  int RC_SIGN_IN = 123;
+    private final static int RC_SIGN_IN = 123;
     FirebaseAuth fAuth;
-    private GoogleSignInClient mGoogleSignInClient;
+    public static GoogleSignInClient mGoogleSignInClient;
     private FirebaseAuth mAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,36 +45,37 @@ private Button sign_in, sign_up,googleIcon;
         setContentView(R.layout.activity_main);
 
         requestGoogle();
-        // Main Screen SignUp button
+//        Main Screen SignUp button
         sign_in = (Button) findViewById(R.id.sign_in);
         sign_in.setOnClickListener(this);
 
-        sign_up=(Button)findViewById(R.id.bt_signup);
+        sign_up = (Button) findViewById(R.id.bt_signup);
         sign_up.setOnClickListener(this);
 
-        googleIcon = (Button)findViewById(R.id.googleIconButton);
+        googleIcon = (Button) findViewById(R.id.googleIconButton);
         googleIcon.setOnClickListener(this);
 
-        mAuth=FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
         fAuth = FirebaseAuth.getInstance();
+
     }
+
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.sign_in:
-                startActivity(new Intent(MainActivity.this,Sign_Up.class));
+                startActivity(new Intent(MainActivity.this, Sign_Up.class));
                 break;
             case R.id.bt_signup:
-                startActivity(new Intent(MainActivity.this,Registeration.class));
+                startActivity(new Intent(MainActivity.this, Registeration.class));
                 break;
             case R.id.googleIconButton:
                 googleSign();
                 break;
-
-
         }
     }
+
     private void googleSign() {
 
         resultLauncher.launch(new Intent(mGoogleSignInClient.getSignInIntent()));
