@@ -55,7 +55,7 @@
         app:srcCompat="@drawable/facebookicon" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/facebook_bt"
         android:layout_width="87dp"
         android:layout_height="77dp"
         android:background="@drawable/facebookicon"

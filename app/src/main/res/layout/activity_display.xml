@@ -8,7 +8,7 @@
     tools:context=".Display">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbardisp"
+        android:id="@+id/toolbardisp_view_prof"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:elevation="4dp"

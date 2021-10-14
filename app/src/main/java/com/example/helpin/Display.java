@@ -1,6 +1,5 @@
 package com.example.helpin;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -45,7 +44,7 @@ public class Display extends AppCompatActivity {
             }
         });
 
-        Toolbar toolbar = findViewById(R.id.toolbardisp);
+        Toolbar toolbar = findViewById(R.id.toolbardisp_view_prof);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Settings- Display");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

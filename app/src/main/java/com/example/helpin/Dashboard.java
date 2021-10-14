@@ -82,8 +82,14 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_logout:
+                FirebaseAuth.getInstance().signOut();
                 signOut();
                 break;
+
+            case R.id.nav_profile:
+
+                startActivity(new Intent(getApplicationContext(), ViewProfile.class));
+
             case R.id.nav_history:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new History_Fragment()).commit();
@@ -109,7 +115,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-//                        FirebaseAuth.getInstance().signOut();//logout
+                        //FirebaseAuth.getInstance().signOut();
                         startActivity(new Intent(getApplicationContext(),MainActivity.class));
                         Toast.makeText(Dashboard.this, "Logout Successful ", Toast.LENGTH_SHORT).show();
                         finish();

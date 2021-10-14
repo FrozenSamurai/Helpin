@@ -31,6 +31,10 @@ public class Registeration extends AppCompatActivity {
 
     String email,password,userid;
 
+    String First_Name= "Not Added";
+    String Last_Name= "Not Added";
+    String DOB= "Not Added";
+
     FirebaseFirestore firestore;
 
     FirebaseAuth fAuth;
@@ -83,6 +87,10 @@ public class Registeration extends AppCompatActivity {
                             Map<String,Object> user= new HashMap<>();
                             user.put("Email",email);
                             user.put("Password",password);
+                            user.put("First Name",First_Name);
+                            user.put("Last Name",Last_Name);
+                            user.put("Date Of Birth",DOB);
+
                             documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {

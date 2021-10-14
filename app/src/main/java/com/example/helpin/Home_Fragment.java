@@ -54,6 +54,7 @@ public class Home_Fragment extends Fragment implements TextToSpeech.OnInitListen
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_home, container, false);
+        textToSpeech = new TextToSpeech(getActivity(),this);
 
         textToSpeech = new TextToSpeech(getActivity(),this);
         multi = (EditText)view.findViewById(R.id.text_to_speech);

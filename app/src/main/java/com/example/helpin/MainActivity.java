@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,12 +32,12 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button sign_in, sign_up, googleIcon;
+    private Button sign_in, sign_up, googleIcon,facebookbt;
     private static final String TAG = "s";
     private final static int RC_SIGN_IN = 123;
     FirebaseAuth fAuth;
     public static GoogleSignInClient mGoogleSignInClient;
-    private FirebaseAuth mAuth;
+    public FirebaseAuth mAuth;
 
 
     @Override
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         requestGoogle();
 //        Main Screen SignUp button
+        facebookbt=(Button)findViewById(R.id.facebook_bt);
         sign_in = (Button) findViewById(R.id.sign_in);
         sign_in.setOnClickListener(this);
 
@@ -58,6 +60,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mAuth = FirebaseAuth.getInstance();
         fAuth = FirebaseAuth.getInstance();
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (user != null) {
+            // User is signed in
+            Intent i = new Intent(MainActivity.this, Dashboard.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(i);
+        } else {
+            // User is signed out
+            Log.d(TAG, "onAuthStateChanged:signed_out");
+        }
+
+        facebookbt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,FacebookAuthActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent);
+            }
+        });
+
     }
 
 
@@ -68,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(MainActivity.this, Sign_Up.class));
                 break;
             case R.id.bt_signup:
+                FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(MainActivity.this, Registeration.class));
                 break;
             case R.id.googleIconButton:

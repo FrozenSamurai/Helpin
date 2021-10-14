@@ -3,8 +3,6 @@
     package="com.example.helpin">
 
     <permission android:name="android.permission.INTERNET" />
-<!--    <permission android:name="android.permission.RE"-->
-<!--    <permission android:name="android.permission.RECORD_AUDIO" />-->
 
     <application
         android:allowBackup="true"
@@ -14,13 +12,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Helpin">
         <activity
+            android:name=".ViewProfile"
+            android:parentActivityName=".Dashboard"
+            android:exported="false" />
+        <activity
+            android:name=".FacebookAuthActivity"
+            android:exported="false" />
+        <activity
             android:name=".Test"
             android:exported="true" />
         <activity android:name=".Registeration" />
         <activity android:name=".Dashboard" />
+        <activity
+            android:name=".profile_info"
+            android:parentActivityName=".ViewProfile" />
         <activity android:name=".forget_password" />
         <activity android:name=".Sign_Up" />
         <activity android:name=".MainActivity" />
+        <activity
+            android:name=".Display"
+            android:parentActivityName=".Dashboard" />
         <activity android:name=".Splash_Screen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,6 +40,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".Intro_Activity" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
     </application>
 
 </manifest>

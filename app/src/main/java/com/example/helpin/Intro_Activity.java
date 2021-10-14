@@ -57,11 +57,11 @@ public class Intro_Activity extends AppCompatActivity {
 
         // when this activity is about to be launch we need to check if its openened before or not
 
-        /*if (restorePrefData()) {
+        if (restorePrefData()) {
             Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(mainActivity);
             finish();
-        }*/
+        }
 
 
         // fill list screen
@@ -167,7 +167,6 @@ public class Intro_Activity extends AppCompatActivity {
     }
 
 
-// Sir if you enable this, you will view the onboard view data only once when its installed at the first time.
     private boolean restorePrefData() {
         SharedPreferences pref = getApplicationContext().getSharedPreferences("myPrefs", MODE_PRIVATE);
         Boolean isIntroActivityOpnendBefore = pref.getBoolean("isIntroOpnend", false);

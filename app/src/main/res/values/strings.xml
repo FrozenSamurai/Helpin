@@ -7,4 +7,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <!--    <string name="default_web_client_id" translatable="false">69104613383-49ap3otqtcivhh3dccbr622cja53vr4b.apps.googleusercontent.com</string>-->
+    <string name="facebook_app_id">163982555930335</string>
+    <string name="fb_login_protocol_scheme">fb163982555930335</string>
+
 </resources>
