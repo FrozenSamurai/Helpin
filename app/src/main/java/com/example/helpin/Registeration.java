@@ -86,7 +86,7 @@ public class Registeration extends AppCompatActivity {
                             DocumentReference documentReference=firestore.collection("Users").document(userid);
                             Map<String,Object> user= new HashMap<>();
                             user.put("Email",email);
-                            user.put("Password",password);
+                            //user.put("Password",password);
                             user.put("First Name",First_Name);
                             user.put("Last Name",Last_Name);
                             user.put("Date Of Birth",DOB);
