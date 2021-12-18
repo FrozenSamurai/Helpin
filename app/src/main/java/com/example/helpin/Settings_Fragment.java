@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 
 public class Settings_Fragment extends Fragment {
 
-    ImageButton ig1;
+    ImageButton ig1,ig2,ig3,ig4;
 
     @Nullable
     @Override
@@ -24,6 +24,13 @@ public class Settings_Fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(),Display.class));
+            }
+        });
+        ig2=(ImageButton)view.findViewById(R.id.htu);
+        ig2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(),HowToUse.class));
             }
         });
 

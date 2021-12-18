@@ -4,10 +4,11 @@
     android:layout_height="match_parent">
 
     <ImageButton
+        android:id="@+id/htu"
         android:layout_width="350dp"
         android:layout_height="70dp"
-        android:layout_marginTop="45dp"
         android:layout_marginLeft="25dp"
+        android:layout_marginTop="45dp"
         android:src="@drawable/howtouse">
 
     </ImageButton>
@@ -16,8 +17,8 @@
         android:id="@+id/disp_setting"
         android:layout_width="350dp"
         android:layout_height="70dp"
-        android:layout_marginTop="150dp"
         android:layout_marginLeft="25dp"
+        android:layout_marginTop="150dp"
         android:src="@drawable/display">
 
     </ImageButton>
@@ -25,8 +26,8 @@
     <ImageButton
         android:layout_width="350dp"
         android:layout_height="70dp"
-        android:layout_marginTop="255dp"
         android:layout_marginLeft="25dp"
+        android:layout_marginTop="255dp"
         android:src="@drawable/privacy">
 
     </ImageButton>
@@ -34,8 +35,8 @@
     <ImageButton
         android:layout_width="350dp"
         android:layout_height="70dp"
-        android:layout_marginTop="360dp"
         android:layout_marginLeft="25dp"
+        android:layout_marginTop="360dp"
         android:src="@drawable/help">
 
     </ImageButton>
@@ -43,8 +44,8 @@
     <ImageButton
         android:layout_width="350dp"
         android:layout_height="70dp"
-        android:layout_marginTop="465dp"
         android:layout_marginLeft="25dp"
+        android:layout_marginTop="465dp"
         android:src="@drawable/aboutus">
 
     </ImageButton>

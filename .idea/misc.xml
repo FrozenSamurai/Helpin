@@ -34,6 +34,17 @@
         <entry key="..\:/Users/vedan/AndroidStudioProjects/Helpin/app/src/main/res/layout/toolbar.xml" value="0.24954710144927536" />
         <entry key="..\:/Users/vedan/AndroidStudioProjects/Helpin/app/src/main/res/menu/drawer_menu.xml" value="0.335" />
         <entry key="..\:/Users/vedan/AndroidStudioProjects/Helpin/app/src/main/res/menu/settings_toolbar.xml" value="0.20260416666666667" />
+        <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.16590678824721378" />
+        <entry key="app/src/main/res/layout/activity_display.xml" value="0.16590678824721378" />
+        <entry key="app/src/main/res/layout/activity_how_to_use.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.16590678824721378" />
+        <entry key="app/src/main/res/menu/settings_toolbar.xml" value="0.23796296296296296" />
+        <entry key="app/src/main/res/menu/settings_toolbar_none.xml" value="0.33589743589743587" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.39897435897435896" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.33229166666666665" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_logo.xml" value="0.3494791666666667" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_logo_round.xml" value="0.3494791666666667" />
       </map>
     </option>
   </component>
