@@ -1,5 +1,8 @@
 package com.example.helpin;
 
+import static android.content.Intent.getIntent;
+import static android.content.Intent.makeMainActivity;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -15,7 +18,7 @@ import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import com.google.firebase.firestore.DocumentReference;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,17 +28,24 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.ArrayList;
 import java.util.Locale;
 
 public class Home_Fragment extends Fragment implements TextToSpeech.OnInitListener {
 
     private EditText multi;
-    private TextView speech_edit;
+    private TextView speech_edit,name;
     private Button speak,clear,stop;
     private TextToSpeech textToSpeech;
     private SeekBar speed;
     private ImageButton mic;
+    FirebaseAuth firebaseAuth;
+    FirebaseFirestore firestore;
+    String userid;
+    String get_name;
 
 
 
@@ -54,23 +64,47 @@ public class Home_Fragment extends Fragment implements TextToSpeech.OnInitListen
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_home, container, false);
-        textToSpeech = new TextToSpeech(getActivity(),this);
 
+
+        firebaseAuth= FirebaseAuth.getInstance();
+        firestore = FirebaseFirestore.getInstance();
+
+        userid=firebaseAuth.getCurrentUser().getUid();
+        textToSpeech = new TextToSpeech(getActivity(),this);
         textToSpeech = new TextToSpeech(getActivity(),this);
         multi = (EditText)view.findViewById(R.id.text_to_speech);
         speak = (Button)view.findViewById(R.id.speak_for_text);
         clear = (Button)view.findViewById(R.id.clear_for_text);
         stop = (Button)view.findViewById(R.id.stop_for_text);
+        name = (TextView)view.findViewById(R.id.profile_name) ;
         speed = (SeekBar) view.findViewById(R.id.seek_bar_speed);
         speech_edit = (TextView)view.findViewById(R.id.speech_text);
         mic = (ImageButton)view.findViewById(R.id.mic_off);
+        Intent intent = getActivity().getIntent();
+        Bundle bundle= intent.getExtras();
+        if (bundle!= null) {// to avoid the NullPointerException
+            get_name=bundle.getString("ed_fname");
+            name.setText(get_name);
+        }
+        else{
+            name.setText("Please edit your profile");
+        }
+      /*  get_name=bundle.getString("ed_fname");
+        name.setText(get_name);*/
+      /*  if(get_name == null){
+            name.setText("Please edit your profile");
+        }else{
+            name.setText(get_name);
+        }*/
 
 
 
         mic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mic.setImageResource(R.drawable.on);
                 speech_edit.setText("");
+               // mic.setImageResource(R.drawable.off);
 //                mic.setBackgroundResource(R.drawable.ic_baseline_mic_24);
                 Intent record = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
 //                record.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,"en-US");
@@ -169,6 +203,7 @@ public class Home_Fragment extends Fragment implements TextToSpeech.OnInitListen
     public void onInit(int status) {
 
     }
-}
 
+
+}
 
